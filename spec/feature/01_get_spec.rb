@@ -1,4 +1,4 @@
-describe "GET", type: :request  do
+describe "Feature - Get Requests", type: :request  do
 
   let(:title) { 'Air KONG Squeaker Tennis Balls' }
   let(:product) { Product.find_by(title: title) }

@@ -1,4 +1,4 @@
-describe "POST", type: :request  do
+describe "Feature - Post Requests", type: :request  do
 
   let(:chew_toy_attributes) {
     {
