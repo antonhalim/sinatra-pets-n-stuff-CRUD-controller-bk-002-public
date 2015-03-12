@@ -1,4 +1,4 @@
-describe "DELETE", type: :request  do
+describe "Feature - Delete Requests", type: :request  do
 
   let(:title) { 'Leaps & Bounds Pirate Octopus Dog Toy' }
   let(:slug) { 'octopus_toy' }

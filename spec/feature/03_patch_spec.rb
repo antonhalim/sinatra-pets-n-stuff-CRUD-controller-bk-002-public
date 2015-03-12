@@ -1,4 +1,4 @@
-describe "PATCH", type: :request  do
+describe "Feature - Patch Requests", type: :request  do
 
   let(:edit_message) { 'Editing Product' }
   let(:title) { 'Air KONG Squeaker Tennis Balls' }
