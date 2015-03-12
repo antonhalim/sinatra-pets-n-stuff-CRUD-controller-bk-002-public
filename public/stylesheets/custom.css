@@ -1,0 +1,16 @@
+.center-this {
+  width: 100%;
+  text-align: center;
+}
+
+.store-title {
+  margin-bottom: 20px;
+}
+
+.button-padding {
+  margin: 10px 0px 10px 0px;
+}
+
+.price {
+  color: firebrick;
+}

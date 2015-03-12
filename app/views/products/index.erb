@@ -1,0 +1,33 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1>Welcome to the Products Page</h1>
+    <p>Pets 'n Stuff is a locally owned pet shop based in Brooklyn. We specialize in providing toys that will entertain and engage your pets.</p>
+    <p>
+      <a href="/" class="btn btn-default btn-lg">&laquo; Back</a>
+      <a href="/products/new" class="btn btn-default btn-lg">Add a product &raquo;</a>
+    </p>
+  </div>
+</div>
+
+<% @products.each_with_index do |product, i| %>
+  <% if i % 3 == 0 %>
+    <div class="row">
+  <% end %>
+    <div class="col-md-4">
+      <div class="center-this">
+        <a href="/products/<%= product.id %>">
+          <img src="/images/<%= product.slug %>.jpg">
+        </a>
+        <p><a href="/products/<%= product.id %>" class="btn btn-default"><%= product.title %></a></p>
+        <p class="price"><%= product.price %></p>
+      </div>
+    </div>
+  <% if i % 3 == 2 %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="row">
+  <div class="center-this">
+  </div>
+</div>

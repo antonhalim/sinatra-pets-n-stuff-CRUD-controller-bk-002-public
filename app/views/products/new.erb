@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <h1>Add a product</h1>
+    <form action="/products" method="post">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" placeholder="Chew toy" name="product[title]">
+      </div>
+      <div class="form-group">
+        <label for="slug">Slug</label>
+        <input type="text" class="form-control" placeholder="chew_toy" name="product[slug]">
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="text" class="form-control" placeholder="$5.99" name="product[price]">
+      </div>
+      <input type="submit" value="Submit" class="btn btn-default">
+    </form>
+    <p class="button-padding"><a href="/products" class="btn btn-default">&laquo; Back</a></p>
+  </div>
+</div>
