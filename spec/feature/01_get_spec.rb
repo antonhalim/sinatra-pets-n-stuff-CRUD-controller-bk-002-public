@@ -42,6 +42,9 @@ describe "Feature - Get Requests", type: :request  do
         expect(page).to have_content(product_welcome)
         3.times do
           product = Product.all.sample
+          # if product.nil?
+          #   binding.pry
+          # end
           expect(page).to have_content(product.title)
           expect(page).to have_content(product.price)
         end
