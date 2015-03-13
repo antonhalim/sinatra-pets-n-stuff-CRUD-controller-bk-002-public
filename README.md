@@ -85,29 +85,28 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 ```
 
 * `rake db:migrate`
-
-```
-== 1 CreateProducts: migrating ================================================
--- create_table(:products)
-   -> 0.0046s
-== 1 CreateProducts: migrated (0.0047s) =======================================
-```
-
 * `rake db:seed`
 
-```
-Added 36 products
-```
+You now have two options to start your server:
 
-Then you can run `rackup`. 
+* Rackup
+  * Type `rackup` in your terminal. You should see the output below. To view the `home` page using rackup, go to [http://localhost:9292/](http://localhost:9292/).
+  * Rackup does not automatically refresh itself based on changes you make to your controller so you must stop the server (`control` + `c`) and restart it (`rackup`) to see how the changes you make to the products controller affect your app.
+  
+```
+[TIME] INFO  WEBrick 1.3.1
+[TIME] INFO  ruby 2.1.2 (DATE) [x86_64-darwin13.0]
+[TIME] INFO  WEBrick::HTTPServer#start: pid=3179 port=9292
+```
+* Shotgun
+  * Type `shotgun` in your terminal. You should see the output below. To view the `home` page using shotgun, go to [http://localhost:9393/](http://localhost:9393/).
+  * Unlike Rackup, Shotgun is a  a reloading rack development server. This means it will automatically reload your controllers so you don't need to stop and restart it every time you make a change to your controller.
 
 ```
 [TIME] INFO  WEBrick 1.3.1
 [TIME] INFO  ruby 2.1.2 (DATE) [x86_64-darwin13.0]
 [TIME] INFO  WEBrick::HTTPServer#start: pid=3179 port=9292
 ```
-
-To view the `home` page, go here [http://localhost:9292/](http://localhost:9292/). This is a test-driven lab so go ahead and get started by running your testing suite.
 
 ## Resources
 

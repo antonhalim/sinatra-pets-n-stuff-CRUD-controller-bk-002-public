@@ -7,6 +7,7 @@ gem 'rake'
 gem 'require_all'
 gem 'pg'
 gem 'pry'
+gem 'shotgun'
 
 group :test do
   gem 'rspec'
