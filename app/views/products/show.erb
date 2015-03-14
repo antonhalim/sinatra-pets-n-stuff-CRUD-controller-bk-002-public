@@ -9,7 +9,7 @@
     <img src="/images/<%= @product.slug %>.jpg">
     <h3><%= @product.price %></h3s>
     <p class="button-padding"><a href="/products/<%= @product.id %>/edit" class="btn btn-warning">Edit</a></p>
-    <form action="/products/<%= @product.id %>/destroy" method="post">
+    <form action="/products/<%= @product.id %>" method="post">
       <input type="hidden" name="_method" value="delete">
       <input type="submit" value="Out of stock" class="btn btn-danger">
     </form>
@@ -20,4 +20,5 @@
   <div class="center-this">
     <a href="/products" class="btn btn-primary">&laquo; Back</a>
   </div>
+</div>>
 </div>
