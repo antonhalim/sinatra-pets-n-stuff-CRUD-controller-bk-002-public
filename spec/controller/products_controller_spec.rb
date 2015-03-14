@@ -184,7 +184,7 @@ describe ProductsController do
           :price => '$19.23'
         }
         @product = Product.create(@attributes)
-        delete "/products/#{@product.id}/destroy"
+        delete "/products/#{@product.id}"
         follow_redirect!
       end
 
