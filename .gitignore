@@ -1,4 +1,5 @@
-.db/petstore_test.sqlite
-.db/petstore_development.sqlite
+db/petstore_test.sqlite
+db/petstore_development.sqlite
+db/schema.rb
 
 Gemfile.lock
