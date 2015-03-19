@@ -1,0 +1,4 @@
+.db/petstore_test.sqlite
+.db/petstore_development.sqlite
+
+Gemfile.lock
