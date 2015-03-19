@@ -1,33 +1,33 @@
-require_relative '../config/environment'
-require 'rake'
-require 'rack/test'
-require 'capybara/rspec'
-require 'capybara/dsl'
-load './Rakefile'
+ENV["SINATRA_ENV"] = "test"
 
-ActiveRecord::Base.logger.level = 2
+require_relative '../config/environment'
+require 'rack/test'
+
+if defined?(ActiveRecord::Migrator) && ActiveRecord::Migrator.needs_migration?
+  raise 'Migrations are pending run `rake db:migrate SINATRA_ENV=test` to resolve the issue.'
+end
 
 RSpec.configure do |config|
   config.include Capybara::DSL
-  config.before(:all) do
-    run_rake_task('db:drop')
-    run_rake_task('db:migrate')
-    run_rake_task('db:seed')
+  config.include Rack::Test::Methods
+  
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+    products = JSON.parse(File.read("db/toys.json"))
+    products.each { |p| Product.create(p) }
   end
-  config.after(:all) do
-    run_rake_task('db:drop')
-    run_rake_task('db:migrate')
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
   end
+
+  config.order = 'default'
 end
 
-def run_rake_task(task)
-  RAKE_APP[task].invoke
-  if task == 'db:migrate' || task == 'db:drop' || task == 'db:seed'
-    RAKE_APP[task].reenable
-  end
-end
-
-include Rack::Test::Methods
+ActiveRecord::Base.logger.level = 2
 
 def app
   Rack::Builder.parse_file('config.ru').first

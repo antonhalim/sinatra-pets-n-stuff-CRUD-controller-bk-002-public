@@ -6,8 +6,10 @@ require 'json'
 require 'yaml'
 require 'open-uri'
 
-connection_details = YAML::load(File.open('config/database.yml'))
-ActiveRecord::Base.establish_connection(connection_details)
+ActiveRecord::Base.establish_connection(
+  :adapter => "sqlite3",
+  :database => "db/petstore_#{ENV['SINATRA_ENV']}.sqlite"
+)
 
 require_all 'app'
 

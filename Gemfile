@@ -8,6 +8,8 @@ gem 'require_all'
 gem 'pg'
 gem 'pry'
 gem 'shotgun'
+gem 'sqlite3'
+gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
 
 group :test do
   gem 'rspec'
