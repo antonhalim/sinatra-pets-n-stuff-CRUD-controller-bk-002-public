@@ -30,13 +30,9 @@ There is already a migration that will create a table in your database called `p
 
 For instance, there's a flying disk product titled "Petco Flying Disc". It has a price of "$1.79" and its slug is "petco_flying_disc". This slug is handy because there is an image in the `public/images/` folder called `petco_flying_disc.jpg`, so pretty much just `"<slug>" + ".jpg"`.
 
-This lab adds this `products` table to the `petstore` database. Go ahead and create the database now:
+This lab already has a `products` table migration. Go ahead and run `bundle install`, `rake db:migrate`, `rake db:seed`. This sets up your development database environment. To set up your test database environment, run `rake db:migrate SINATRA_ENV=test`.
 
-```
-createdb petstore_crud
-```
-
-To see what your database looks like, first run `bundle install` followed by `rake db:migrate`. Then run `rake db:seed`. (When you run the command `rake db:seed`, the `db/seeds.rb` file executes and adds the JSON data into your `products` databse.) Now your `products` table looks something like this:
+After seeding your development environment, your `products` table should look something like this:
 
 ![seeded database](https://s3-us-west-2.amazonaws.com/web-dev-readme-photos/sinatra/pet-store-database)
 
@@ -86,6 +82,7 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 
 * `rake db:migrate`
 * `rake db:seed`
+* `rake db:migrate SINATRA_ENV=test`
 
 You now have two options to start your server:
 
